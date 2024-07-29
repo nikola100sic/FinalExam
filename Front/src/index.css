@@ -1,0 +1,156 @@
+table {
+    border: 3px solid navy;
+    width: 50%;
+  
+  
+    text-align: center;
+  }
+  
+  h1 {
+    color: hwb(219 20% 0%);
+    text-align: center;
+    padding-top: 20%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .welcome{
+    color: hwb(221 6% 88%);
+    text-align: center;
+    padding-top: 19%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+  }
+  
+  h2 {
+    color: hsl(200, 6%, 10%);
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  
+  .checkbox-label {
+      display: flex;
+       align-items: center;
+   }
+      
+   .checkbox-label input[type="checkbox"] {
+       margin-right: 8px; 
+    }
+
+  #logout {
+    background-color: #3655a3;
+    border-color:  #3353a3;
+  }
+  
+  .byName {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: larger;
+    padding-top: 17%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }
+  
+  .button {
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+  
+  }
+  
+  .button-navy {
+    background-color: rgb(58, 58, 58);
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: navy;
+  }
+  
+  li {
+    float: left;
+  }
+
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: rgb(216, 221, 226);
+  }
+  
+
+  .loginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    font-style: oblique;
+}
+  
+  .addButton{
+    margin-left: 88%;
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+  }
+  
+  .page{
+    padding-right:  80%;
+  }
+
+  .login-box {
+    background-color: #e7e2e2;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.show-password-button {
+    height: 3%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-style: italic;
+    border-color: #c4c4c4;
+    background-color: #ffffff;
+
+}
+
+.login-button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 50%;
+    width: 50%;
+    margin-top: 1rem;
+}
+
+.registration-button{
+  margin-left: 35%;
+  margin-top: -8%;
+  margin-bottom: 10%;
+}
+
