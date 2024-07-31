@@ -34,7 +34,7 @@ export const OrderDisplay = () => {
             .catch(error => {
                 console.log(error);
             });
-    }, []);
+    }, [searchParams]);
 
     useEffect(() => {
         console.log("Search Params Changed:", searchParams);
