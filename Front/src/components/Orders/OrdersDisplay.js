@@ -1,5 +1,5 @@
 import testAxios from "../../apis/TestAxios"
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { Button, Col, FormControl, FormLabel, Row, Table } from 'react-bootstrap';
 import { jwtDecode } from 'jwt-decode';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,40 +7,32 @@ import { faCancel, faListCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 export const OrderDisplay = () => {
-    const [products, setProducts] = useState([])
     const [orders, setOrders] = useState([])
-    const [searchParams, setSearchParams] = useState()
+    const [searchParams, setSearchParams] = useState({ dateFromParam: "", dateToParam: "" });
 
 
-    const getProducts = useCallback(() => {
-        console.log("Fetching products with params:", searchParams);
-        testAxios.get('/products', { params: { ...searchParams } })
-            .then(res => {
-                setProducts(res.data);
-                console.log('Products:', res.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }, [searchParams]);
 
-    const getOrders = useCallback(() => {
-        console.log("Fetching orders with params:", searchParams);
-        testAxios.get('/orders', { params: { ...searchParams } })
-            .then(res => {
+
+    const getOrders = () => {
+        const params = {};
+        if (searchParams.dateFromParam)
+            params.dateFromParam = searchParams.dateFromParam;
+        if (searchParams.dateToParam)
+            params.dateToParam = searchParams.dateToParam;
+
+        testAxios.get(`/orders`, { params })
+            .then((res) => {
                 setOrders(res.data);
-                console.log('Orders:', res.data);
+                console.log(res.data);
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log(error);
             });
-    }, [searchParams]);
+    };
 
     useEffect(() => {
-        console.log("Search Params Changed:", searchParams);
-        getProducts();
         getOrders();
-    }, [searchParams]);
+    }, []);
 
 
     const isLoggedIn = !!localStorage.getItem("jwt")
@@ -119,7 +111,7 @@ export const OrderDisplay = () => {
                     <FormControl style={{ width: '100%' }} placeholder="End date" type="datetime-local" name="dateToParam" onChange={handleSearchChange} />
                 </Col>
                 <Col>
-                    <Button style={{ marginLeft: '150px' }} onClick={() => setSearchParams({ ...searchParams })}>Search</Button>
+                    <Button style={{ marginLeft: '150px' }} onClick={getOrders}>Search</Button>
                 </Col>
             </Row>
 
